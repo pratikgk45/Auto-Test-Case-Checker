@@ -36,4 +36,12 @@ Note the number at the end, 1155, which we shall be using in the following comma
 cd 1155
 ```
 * Write the code for a problem (say D)
-* Run './ver.sh d' or './ver.sh D' to verify your program d.cpp with sample test cases for problem D imported from website.
+* Run 
+```bash
+./ver.sh d
+```
+or 
+```bash
+./ver.sh D
+```
+to verify your program d.cpp with sample test cases for problem D imported from website.
