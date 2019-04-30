@@ -18,7 +18,7 @@ Note the number at the end, 1155, which we shall be using in the following comma
 * Run './gen.sh'
 * It will ask you contest ID, number of problems and test case import flag value. Enter these space-separated 3 integer values and Enter. For this contest, Contest ID is 1155 and number of problems is 6.
 * By doing this you are creating folder with those many .cpp files and test case folder.
-* If you are creating folder before the contest :
+* __If you are creating folder before the contest__ :
 	- Number of problems will be specified in the respective blog of contest.
 	- Contest ID can be seen in URL by clicking on contest registrants list link https://codeforces.com/contestRegistrants/1155 (list of people registered for contest, it is always present in rightmost column in contests lists https://codeforces.com/contests).
 * If you are creating folder after contest problems are released :
