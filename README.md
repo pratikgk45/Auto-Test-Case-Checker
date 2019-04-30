@@ -7,6 +7,11 @@ Currently these scripts are only for programming in C++ (If you want to extend t
 Installation and Configuration
 ------------------------------
 * Download this repository.
+* Navigate to repository and give permission to files for execution
+```bash
+chmod +x gen.sh
+chmod +x scripts/ver.sh
+```
 * Update the template.cpp file as needed.
 
 How to Use
