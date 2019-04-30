@@ -22,7 +22,7 @@ Note the number at the end, 1155, which we shall be using in the following comma
 * **If you are creating folder after contest problems are released**, you can just go to https://codeforces.com/contest/1155 and see number of problems.
 * Test Case import Flag is either 0 or 1. Flag is to be kept 0 if you are creating folder before contest as test cases will not be available then. Flag is to be kept 1 if contest is started and problems are released.
 * This creates a folder named 1155, with a .cpp file for each problem whose content is the same as the template.cpp file which you have configured.
-* Atleast once, you are needed to run this command with **Flag 1** to access test cases, till then, test case folder will remain empty.
+* **Atleast once, you are needed to run this command with Flag 1 to access test cases**, till then, test case folder will remain empty.
 * After creating folder, navigate to it by 'cd 1155'
 * Write the code for a problem (say D)
-* Run './ver.sh d' or './ver.sh D' to verify Problem : D with sample test cases provided in the website.
+* Run './ver.sh d' or './ver.sh D' to verify your program d.cpp with sample test cases for problem D imported from website.
