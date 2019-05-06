@@ -12,9 +12,9 @@ for problem_num in $(seq 1 ${problem_count})
 do
 	problem_num=$(echo $problem_num+96 | bc)
 	problem=$(printf "\x$(printf %x $problem_num)")
-	echo -n $problem" "
+	echo $problem" -> "$problem".cpp created "
 	cp -n --no-clobber template.cpp "cf_"$id/$problem.cpp
 	if [[ "$test_import_flag" == 1 ]];then
-		python scripts/generate_problem.py $id $problem
+		python3 scripts/generate_problem_3.py $id $problem
 	fi
 done
