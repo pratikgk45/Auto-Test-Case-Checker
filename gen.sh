@@ -15,6 +15,6 @@ do
 	echo $problem" -> "$problem".cpp created "
 	cp -n --no-clobber template.cpp "cf_"$id/$problem.cpp
 	if [[ "$test_import_flag" == 1 ]];then
-		python3 scripts/generate_problem_3.py $id $problem
+		python scripts/generate_problem.py $id $problem
 	fi
 done
