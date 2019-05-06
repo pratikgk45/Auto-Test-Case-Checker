@@ -15,6 +15,12 @@ do
 	echo $problem" -> "$problem".cpp created "
 	cp -n --no-clobber template.cpp "cf_"$id/$problem.cpp
 	if [[ "$test_import_flag" == 1 ]];then
-		python scripts/generate_problem.py $id $problem
+		if command -v python3 &>/dev/null; then
+			python3 scripts/generate_problem.py $id $problem
+		elif command -v python &>/dev/null; then
+			python scripts/generate_problem.py $id $problem
+		else
+			echo "Requirement python or python3 not satisfied"
+		fi
 	fi
 done
