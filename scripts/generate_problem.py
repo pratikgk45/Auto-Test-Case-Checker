@@ -7,14 +7,14 @@ from lxml import etree
 contest_id = (sys.argv)[1]
 
 task_id  = sys.argv[2]
-task_url = "http://codeforces.com/contest/" +contest_id+"/problem/"+task_id
+task_url = "http://codeforces.com/contest/"+contest_id+"/problem/"+task_id
 
 response = requests.get(task_url)
 if response.status_code != 200:
-	print "Fetching Failed"
+	print "Problem URL Fetching Failed"
 	sys.exit()
 
-print "-> Response Code = "+str(response.status_code)
+# print "-> Response Code = "+str(response.status_code)
 html_content = html.document_fromstring(response.text)
 try:
 	node = html_content.find_class("sample-test")[0]
@@ -43,4 +43,4 @@ for test_id in range(num_samples):
 	test_input = filter_node(test_input,'in')
 	test_output = node[test_id*2+1]
 	test_output = filter_node(test_output,'out')
-print "-> Test Cases are Successfully Imported"
+print "-> Test Cases Successfully Imported"
