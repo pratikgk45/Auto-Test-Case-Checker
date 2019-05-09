@@ -2,27 +2,35 @@
 taskid=$(echo $1 | awk '{print tolower($0)}')
 g++ $taskid.cpp -D ONLINE_JUDGE
 if [ $? -eq 0 ];then
-	echo "Compiling "$taskid".cpp success!"
+	echo "Compiling "$taskid".cpp successful !"
+	if [ ! -f "/test_cases/"$taskid"_num_samples" ];then
+		echo "Test Cases are not available"
+		exit 1
+	fi
 	echo "-----------------------------------"
-	numsamples=$(cat tests\/${taskid}_num_samples)
+	numsamples=$(cat test_cases\/${taskid}_num_samples)
 	for test_id_ in $(seq 1 ${numsamples})
 	do
 		test_id=$(echo ${test_id_} - 1 |bc)
-		./a.out < tests/$taskid"_in_"$test_id > tests/$taskid"_myout_"$test_id
-		diff_data=$(diff tests/${taskid}"_myout_"$test_id tests/$taskid"_out_"$test_id -bB)
+		./a.out < test_cases/$taskid"_in_"$test_id > test_cases/$taskid"_myout_"$test_id
+		diff_data=$(diff test_cases/${taskid}"_myout_"$test_id test_cases/$taskid"_out_"$test_id -bB)
 		echo -n "Test case #"$test_id" : "
+		tab="    "
 		if [ "$diff_data" == "" ];then
 			echo "PASSED"
+			echo "$tab|--------------------------------"
+			echo "$tab| Output : "
+			awk -v tab="${tab}" '{print tab"| " $0 }' test_cases/$taskid"_out_"$test_id
+			echo "$tab|--------------------------------"
 		else
 			echo "FAILED"
-			indent_width="    "
-			echo "$indent_width|--------------------------------"
-			echo "$indent_width| Expected output:"
-			awk  -v indent_width="${indent_width}" '{ print indent_width"| " $0 }'  tests/$taskid"_out_"$test_id
-			echo "$indent_width|--------------------------------"
-			echo "$indent_width| Your output:"
-			awk  -v indent_width="${indent_width}" '{ print indent_width"| " $0 }'  tests/$taskid"_myout_"$test_id
-			echo "$indent_width|--------------------------------"
+			echo "$tab|--------------------------------"
+			echo "$tab| Expected output : "
+			awk  -v tab="${tab}" '{ print tab"| " $0 }'  test_cases/$taskid"_out_"$test_id
+			echo "$tab|--------------------------------"
+			echo "$tab| Your output : "
+			awk  -v tab="${tab}" '{ print tab"| " $0 }'  test_cases/$taskid"_myout_"$test_id
+			echo "$tab|--------------------------------"
 		fi
 	done
 else
