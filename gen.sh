@@ -36,9 +36,10 @@ if [[ "$test_import_flag" == 1 ]];then
 		exit 1
 	fi 
 
+	f=1
 	while [ 1 ];
 	do
-		echo -n "Test Case Fetching ... "
+		echo -n "Test Case Fetching Try "$f" : "
 		c=0
 		for problem_num in $(seq 1 ${problem_count})
 		do
@@ -49,10 +50,16 @@ if [[ "$test_import_flag" == 1 ]];then
 			c=$(( $c + $?))
 		done
 		if [[ "$c" -eq "${problem_count}" ]];then
-			echo $'\n'"Test Case Fetching Complete !"
+			echo $'\n'"Test Case Fetching Complete :)"
 			break
 		else
-			echo $'\n'
+			echo $'\n'"Test Case Fetching Failed :("
+		fi
+
+		f=$(( $f + 1 ))
+		if [[ "$f" -eq "6" ]];then
+			echo $'\n'"5 Tries completed. Terminating Program ... "
+			break
 		fi
 	done
 fi
