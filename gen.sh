@@ -20,12 +20,6 @@ do
 done
 
 if [[ "$test_import_flag" == 1 ]];then
-	wget -q --spider "http://codeforces.com/contest/"$id
-	if [[ $? -ne 0 ]];then
-		echo "No Internet Connetion"
-		exit 1
-	fi
-
 	pyth=""
 	if command -v python3 &>/dev/null; then
 		pyth="python3"
@@ -47,10 +41,13 @@ if [[ "$test_import_flag" == 1 ]];then
 			problem=$(printf "\x$(printf %x $problem_num)")
 			echo -n $problem" "
 			${pyth} scripts/test_case_import.py $id $problem
-			c=$(( $c + $?))
+			c=$(( $c + $? ))
 		done
 		if [[ "$c" -eq "${problem_count}" ]];then
 			echo $'\n'"Test Case Fetching Complete :)"
+			break
+		elif [[ "$c" -ne 0 ]];then
+			echo $'\n'"Partial Test Case Fetching Done !"
 			break
 		else
 			echo $'\n'"Test Case Fetching Failed :("
