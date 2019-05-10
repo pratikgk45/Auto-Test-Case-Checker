@@ -13,7 +13,7 @@ chmod +x gen.sh
 chmod +x scripts/ver.sh
 chmod +x scripts/run.sh
 ```
-3. __Before creating folder for any contest__, each time navigate to main repository and excute following commands in given sequence
+3. __Before creating folder for any contest, each time__ navigate to repository and excute following commands in given sequence
 ```bash
 alias gen=./gen.sh
 cd scripts
@@ -26,7 +26,7 @@ How to Use
 ----------
 Suppose you want to participate or want to solve problems in http://codeforces.com/contest/1155
 
-* Navigate to main directory and run 'gen' command.
+* Navigate to repository and run 'gen' command.
 * Enter Contest ID (say 1155 for this contest).
 * If contest is not started yet, program will terminate.
 * If started, it will create folder "cf_"contest_id (say cf_1155) containing empty test case folder and ver.sh script.
