@@ -2,6 +2,9 @@
 taskid=$(echo $1 | awk '{print toupper($0)}')
 if [ -f $taskid".cpp" ];then
 	echo -n ""
+elif [[ -z "$taskid" ]];then
+	echo "Please mention problem ID"
+	exit 1
 else
 	echo $taskid".cpp does not exists"
 	exit 1
