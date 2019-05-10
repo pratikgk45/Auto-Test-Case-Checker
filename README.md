@@ -1,4 +1,4 @@
-Auto Test Case Checker(ATCC)
+Auto Test Case Checker (ATCC)
 =====================
 http://codeforces.com conducts programming contests. While participating in the contest, it would be better if we could check all the sample test cases by running a single command. This repository is going to help in that only.
 
