@@ -1,12 +1,8 @@
 #!/bin/bash
-taskid=$(echo $1 | awk '{print tolower($0)}')
+taskid=$(echo $1 | awk '{print toupper($0)}')
 g++ $taskid.cpp -D ONLINE_JUDGE
 if [ $? -eq 0 ];then
 	echo "Compiling "$taskid".cpp successful !"
-	if [ ! -f "/test_cases/"$taskid"_num_samples" ];then
-		echo "Test Cases are not available"
-		exit 1
-	fi
 	echo "-----------------------------------"
 	numsamples=$(cat test_cases\/${taskid}_num_samples)
 	for test_id_ in $(seq 1 ${numsamples})
