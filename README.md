@@ -30,8 +30,8 @@ Suppose you want to participate or want to solve problems in http://codeforces.c
 * Enter Contest ID (say 1155 for this contest).
 * If contest is not started yet, program will terminate.
 * If started, it will create a folder "cf_"contest_id (say cf_1155) containing .cpp files, one for each problem along with scripts (ver.sh and run.sh) and Test case folder where all imported test cases will be placed.
-* Now, navigate to contest folder by 'cd cf_1155' command.
+* Now, navigate to contest folder by '__cd cf_1155__' command.
 * Write the solution for a problem (say D) in respective file (d.cpp).
-* Run 'ver d' or 'ver D' to test your solution d.cpp with sample test cases for problem D imported from website.
-* To test your solution d.cpp with custom test case, run 'run' command and get output by entering respective arguments. __Custom input arguments should be placed in a single line__.
-* If you get any error related to 'run', 'ver' or 'run' commands, refer to point 3 in 'Installation and Configuration'.
+* Run '__ver d__' or '__ver D__' to test your solution d.cpp with sample test cases for problem D imported from website.
+* To test your solution d.cpp with custom test case, run '__run d__' or '__run D__' command and get output by entering respective arguments. __Custom input arguments should be placed in a single line__.
+* If you get any error related to '__run__', '__ver__' or '__run__' commands, refer to point 2 and 3 in 'Installation and Configuration' section.
