@@ -1,5 +1,6 @@
 Auto Test Case Checker
 =====================
+TO BE UPDATED
 http://codeforces.com conducts programming contests. While participating in the contest, it would be better if we could check all the sample test cases by running a single command. This repository is going to help in that only.
 
 Currently these scripts are only for programming in C++ (If you want to extend to others, modifying the scripts is quite easy).
