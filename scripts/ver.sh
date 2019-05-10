@@ -1,9 +1,21 @@
 #!/bin/bash
 taskid=$(echo $1 | awk '{print toupper($0)}')
+if [ -f $taskid".cpp" ];then
+	echo -n ""
+else
+	echo $taskid".cpp does not exists"
+	exit 1
+fi
 g++ $taskid.cpp -D ONLINE_JUDGE
 if [ $? -eq 0 ];then
 	echo "Compiling "$taskid".cpp successful !"
 	echo "-----------------------------------"
+	if [ -f "test_cases/"$taskid"_num_samples" ];then
+		echo -n ""
+	else
+		echo "Test cases are not available/imported"
+		exit 1
+	fi
 	numsamples=$(cat test_cases\/${taskid}_num_samples)
 	for test_id_ in $(seq 1 ${numsamples})
 	do
