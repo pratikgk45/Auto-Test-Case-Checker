@@ -34,4 +34,4 @@ Suppose you want to participate or want to solve problems in http://codeforces.c
 * Write the solution for a problem (say D) in respective file (d.cpp).
 * Run '__ver d__' or '__ver D__' to test your solution d.cpp with sample test cases for problem D imported from website.
 * To test your solution d.cpp with custom test case, run '__run d__' or '__run D__' command and get output by entering respective arguments. __Custom input arguments should be placed in a single line__.
-* If you get any error related to '__run__', '__ver__' or '__run__' commands, refer to point 2 and 3 in 'Installation and Configuration' section.
+* If you get any error related to '__gen__', '__ver__' or '__run__' commands, refer to point 2 and 3 in 'Installation and Configuration' section.
