@@ -26,12 +26,10 @@ How to Use
 ----------
 Suppose you want to participate or want to solve problems in http://codeforces.com/contest/1155
 
-* Navigate to repository and run 'gen' command.
+* Navigate to repository and run '__gen__' command.
 * Enter Contest ID (say 1155 for this contest).
 * If contest is not started yet, program will terminate.
-* If started, it will create folder "cf_"contest_id (say cf_1155) containing empty test case folder and ver.sh script.
-* Now, script will import problem list and test cases.
-* Finally, we will have a folder with .cpp files, one for each problem along with Test case folder where all imported test cases will be placed.
+* If started, it will create a folder "cf_"contest_id (say cf_1155) containing .cpp files, one for each problem along with scripts (ver.sh and run.sh) and Test case folder where all imported test cases will be placed.
 * Now, navigate to contest folder by 'cd cf_1155' command.
 * Write the solution for a problem (say D) in respective file (d.cpp).
 * Run 'ver d' or 'ver D' to test your solution d.cpp with sample test cases for problem D imported from website.
