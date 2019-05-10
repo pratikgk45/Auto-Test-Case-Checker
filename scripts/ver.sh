@@ -2,10 +2,14 @@
 taskid=$(echo $1 | awk '{print toupper($0)}')
 if [ -f $taskid".cpp" ];then
 	echo -n ""
+elif [[ -z "$taskid" ]];then
+	echo "Please mention problem ID (e.g. 'run D' )"
+	exit 1
 else
 	echo $taskid".cpp does not exists"
 	exit 1
 fi
+
 g++ $taskid.cpp -D ONLINE_JUDGE
 if [ $? -eq 0 ];then
 	echo "Compiling "$taskid".cpp successful !"
