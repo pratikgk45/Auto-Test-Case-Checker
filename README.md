@@ -15,14 +15,14 @@ source init.sh
 
 How to Use
 ----------
-Suppose you want to participate or want to solve problems in http://codeforces.com/contest/1155
+Suppose you want to participate or want to solve problems in http://codeforces.com/contest/1163
 
 * Navigate to repository. Run '__source init.sh__' command.
-* Then, run '__sol__' command. Enter Contest ID (say 1155 for this contest). Enter __space-separated__ problem IDs for problems you want to solve (say A B1 B2). Test case import for corresponding problems will take place. If you want to solve all problems, keep this place blank and all problems will be imported.
+* Then, run '__sol__' command. Enter Contest ID (say 1163 for this contest). Enter __space-separated__ problem IDs for problems you want to solve (say A B1 B2). If you want to solve all problems, keep this place blank and all problems will be imported, otherwise respective problems will be imported.
 * If problems are not released yet, program will terminate.
-* If started, it will create a folder "cf_"contest_id (say cf_1155) containing .cpp files, one for each problem along with scripts (ver.sh and run.sh) and Test case folder where all imported test cases will be placed.
-* Now, navigate to contest folder by '__cd cf_1155__' command.
-* Write the solution for a problem (say D) in respective file (d.cpp).
-* Run '__ver d__' or '__ver D__' to test your solution d.cpp with sample test cases for problem D imported from website.
-* To test your solution d.cpp with custom test case, run '__run d__' or '__run D__' command and get output by entering respective arguments. __Custom input should be placed in a single line__.
+* If started, it will create a folder "cf_"contest_id (say cf_1163) containing .cpp files, one for each problem along with scripts (ver.sh and run.sh) and Test case folder where all imported test cases will be placed.
+* Now, navigate to contest folder by '__cd cf_1163__' command.
+* Write the solution for a problem (say A) in respective file (A.cpp).
+* Run '__ver a__' or '__ver A__' to test your solution A.cpp with sample test cases for problem A imported from website.
+* To test your solution A.cpp with custom test case, run '__run a__' or '__run A__' command and get output by entering respective arguments. __Whole custom input should be placed in a single line__.
 * If you get any error related to '__sol__', '__ver__' or '__run__' commands or about permission, refer to point 2 in 'Installation and Configuration' section.
