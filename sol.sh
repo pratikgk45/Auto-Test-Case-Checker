@@ -16,6 +16,7 @@ else
 fi
 
 read -p "Enter problem IDs (to import all problems from contest, keep it empty) : " task_id
+task_id=$(echo $task_id | awk '{print toupper($0)}')
 problems=$(${pyth} scripts/problem_list_import.py $id)
 if [[ "$?" -eq 0 ]];then
 	echo "Problems are not released yet"
