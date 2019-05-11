@@ -14,7 +14,7 @@ How to Use
 ----------
 Suppose you want to participate or want to solve problems in http://codeforces.com/contest/1155
 
-* Navigate to repository.Run '__source init.sh__' command.
+* Navigate to repository. Run '__source init.sh__' command.
 * Then, run '__gen__' command. Enter Contest ID (say 1155 for this contest).
 * If contest is not started yet, program will terminate.
 * If started, it will create a folder "cf_"contest_id (say cf_1155) containing .cpp files, one for each problem along with scripts (ver.sh and run.sh) and Test case folder where all imported test cases will be placed.
