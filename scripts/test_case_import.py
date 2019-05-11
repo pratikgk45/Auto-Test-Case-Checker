@@ -22,9 +22,13 @@ except:
 
 def filter_node(node,in_or_out):
 	node = node.getchildren()[1]
+	node = etree.tostring(node).decode('utf-8')
+	node = node.replace("<pre>","")
+	node = node.replace("</pre>","")
+	node = node.replace("<br/>","\n")
 	filename = "cf_"+contest_id+'/test_cases/'+task_id+'_'+in_or_out+'_'+str(test_id)
 	f = open(filename,'w')
-	f.write(node.text_content())
+	f.write(node)
 	f.close()
 	subprocess.call("sed -i '/^$/d' "+filename,shell=True)
 
