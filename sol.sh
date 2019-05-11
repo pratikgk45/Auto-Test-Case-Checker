@@ -6,10 +6,10 @@ if [[ -z "$id" || -n ${id//[0-9]/} ]];then
 fi
 
 pyth=""
-if command -v python3 &>/dev/null;then
-	pyth="python3"
-elif command -v python &>/dev/null; then
+if command -v python &>/dev/null;then
 	pyth="python"
+elif command -v python3 &>/dev/null; then
+	pyth="python3"
 else
 	echo "Requirement python or python3 not satisfied"
 	exit 1
