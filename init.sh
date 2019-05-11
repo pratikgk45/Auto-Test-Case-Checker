@@ -7,3 +7,4 @@ alias gen=./gen.sh
 cd scripts
 alias ver=./ver.sh
 alias run=./run.sh
+cd ..
