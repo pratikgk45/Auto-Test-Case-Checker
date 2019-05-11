@@ -15,7 +15,7 @@ if [ $? -eq 0 ];then
 	echo "Compiling "$taskid".cpp successful !"
 	echo "-----------------------------------"
 	tab="    "
-	read -p "$tab| Enter input arguments : " input
+	read -p "$tab| Enter custom input : " input
 	echo $input > temp_in
 	./a.out < temp_in > temp_out
 	echo "$tab|--------------------------------"
