@@ -43,8 +43,11 @@ if [[ ! -z "$task_id" ]];then
 	problems=$task_id
 fi
 
+read -p "Do you want to download problem statements ? (0/1) : " ps_import_flag
+
 mkdir -p "cf_"$id
 mkdir -p "cf_"$id/test_cases/
+mkdir -p "cf_"$id/ps/
 cd "cf_"$id
 ln -fs ../scripts/ver.sh ver.sh
 ln -fs ../scripts/run.sh run.sh
@@ -69,11 +72,16 @@ done
 
 echo -n "Test Case Fetching : "
 c=0
+d=0
 for problem in ${problem_list[@]};
 do
 	echo -n $problem" "
 	${pyth} scripts/test_case_import.py $id $problem
 	c=$(( $c + $? ))
+	if [[ "$ps_import_flag" == 1 ]];then
+		${pyth} scripts/ps_import.py $id $problem
+	fi
+	d=$(( $d + $? ))
 done
 
 if [[ "$c" -eq "${problem_count}" ]];then
@@ -83,5 +91,12 @@ elif [[ "$c" -ne 0 ]];then
 	echo "Please Try again"
 else
 	echo $'\n'"Test Case Fetching Failed :("
+	echo "Please Try again"
+fi
+
+if [[ "$d" -eq "${problem_count}" ]];then
+	echo "Problem Statements Downloaded :)"
+else
+	echo "Problem Statements downloading failed :("
 	echo "Please Try again"
 fi
