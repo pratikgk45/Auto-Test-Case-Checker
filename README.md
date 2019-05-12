@@ -22,7 +22,7 @@ Suppose you want to participate or want to solve problems in http://codeforces.c
 * Enter flag value (0 or 1) so as to download problem statements or not (0 - NO and 1 - YES).
 * If problems are not released yet, program will terminate.
 * If started, it will create a folder "cf_"contest_id (say cf_1163) containing .cpp files, one for each problem along with scripts (ver.sh and run.sh), Test case folder where all imported test cases will be placed and ps folder where all imported problem statements will be placed.
-* If you want to see/solve problems offline, they are imported in '__ps__' folder in "cf_"contest_id folder.
+* If you want to see/solve problems __offline__, they are imported in '__ps__' folder in "cf_"contest_id folder.
 * Now, navigate to contest folder by '__cd cf_1163__' command.
 * Write the solution for a problem (say A) in respective file (A.cpp).
 * Run '__ver a__' or '__ver A__' to test your solution A.cpp with sample test cases for problem A imported from website.
