@@ -6,12 +6,10 @@ if [[ -z "$id" || -n ${id//[0-9]/} ]];then
 fi
 
 pyth=""
-if command -v python &>/dev/null;then
-	pyth="python"
-elif command -v python3 &>/dev/null; then
+if command -v python3 &>/dev/null; then
 	pyth="python3"
 else
-	echo "Requirement python or python3 not satisfied"
+	echo "Requirement python3 not satisfied"
 	exit 1
 fi
 
@@ -19,7 +17,7 @@ read -p "Enter problem IDs (to import all problems from contest, keep it empty) 
 task_id=$(echo $task_id | awk '{print toupper($0)}')
 problems=$(${pyth} scripts/problem_list_import.py $id)
 if [[ "$?" -eq 0 ]];then
-	echo "Problems are not released yet"
+	echo "Problems are not released yet/ Network Error"
 	exit 1
 fi
 if [[ ! -z "$task_id" ]];then
@@ -70,7 +68,11 @@ do
 	fi
 done
 
-echo -n "Test Case Fetching : "
+echo -n "Test Case "
+if [[ "$ps_import_flag" == 1 ]];then
+		echo -n "and Problem Statement "
+	fi 
+echo -n "Fetching : "
 c=0
 d=0
 for problem in ${problem_list[@]};
