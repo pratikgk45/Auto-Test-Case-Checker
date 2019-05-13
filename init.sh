@@ -8,3 +8,4 @@ cd scripts
 alias ver=./ver.sh
 alias run=./run.sh
 cd ..
+git clone https://github.com/mathjax/MathJax.git scripts/
