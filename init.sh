@@ -8,5 +8,5 @@ cd scripts
 alias ver=./ver.sh
 alias run=./run.sh
 mkdir MathJax-2.7.3
-git clone https://github.com/mathjax/MathJax.git ./scripts/MathJax-2.7.3/
+git clone https://github.com/mathjax/MathJax.git ./MathJax-2.7.3/
 cd ..
