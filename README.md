@@ -6,7 +6,7 @@ Currently these scripts are only for programming in C++ (If you want to extend t
 
 Installation and Configuration
 ------------------------------
-1. Download this repository.
+1. Download/clone this repository.
 2. Navigate to repository and run following commands in given sequence :
 ```bash
 cd scripts
