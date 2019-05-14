@@ -7,7 +7,8 @@ Currently these scripts are only for programming in C++ (If you want to extend t
 Installation and Configuration
 ------------------------------
 1. Download/clone this repository.
-2. Navigate to repository and run following commands in given sequence :
+2. Refer to [requirements.txt](./requirements.txt)
+3. Navigate to repository and run following commands in given sequence :
 ```bash
 cd scripts
 mkdir MathJax-2.7.3
@@ -15,7 +16,7 @@ git clone https://github.com/mathjax/MathJax.git ./MathJax-2.7.3/
 cd ..
 source init.sh
 ```
-3. Update the template.cpp file as needed. It's content will be initial content of each .cpp file created further.
+4. Update the template.cpp file as needed. It's content will be initial content of each .cpp file created further.
 
 How to Use
 ----------
