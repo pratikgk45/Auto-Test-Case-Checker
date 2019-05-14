@@ -1,6 +1,5 @@
 import sys
 import requests
-import subprocess
 from lxml import html
 from lxml import etree
 
