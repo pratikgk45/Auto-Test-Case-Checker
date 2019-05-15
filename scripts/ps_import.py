@@ -22,22 +22,33 @@ if response.status_code != 200:
 
 # print("-> Response Code = "+str(response.status_code))
 html_content = html.document_fromstring(response.text)
+node=etree.tostring(html_content).decode('utf-8')
+filename = "cf_"+contest_id+"/ps/"+task_id+".html"
+f = open(filename,'w')
+soup = BeautifulSoup(node,'lxml')
 try:
 	node = html_content.find_class("problemindexholder")[0]
 except:
 	sys.exit(0)
 
 node=etree.tostring(node).decode('utf-8')
-filename = "cf_"+contest_id+"/ps/"+task_id+".html"
-f = open(filename,'w')
-
 mathjax_file=os.path.abspath("scripts/MathJax-2.7.3/MathJax.js")+"?config=TeX-AMS_HTML-full"
 css_file_1=os.path.abspath("scripts/style.css")
 css_file_2=os.path.abspath("scripts/menu.css")
-node="<div class='second-level-menu'><ul class='second-level-menu-list'><li><a href='https://codeforces.com/contest/"+contest_id+"/problem/"+task_id+"' target='_blank'>Link to Problem</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/submit/"+task_id+"' target='_blank'>Submit Code</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/my' target='_blank'>My Submissions</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/status' target='_blank'>Status</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/hacks' target='_blank'>Hacks</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/room/0' target='_blank'>Room</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/standings' target='_blank'>Standings</a></li></ul></div><button onclick='go_to_top_fun()' id='go_to_top_btn' title='Go to Top'>&#10148</button>"+node
-node="<script>window.onscroll = function(){scrollFunction()};function scrollFunction(){if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60)document.getElementById('go_to_top_btn').style.display='block';else document.getElementById('go_to_top_btn').style.display = 'none';}function go_to_top_fun(){document.body.scrollTop = 0;document.documentElement.scrollTop = 0;}</script>"+node
-node="<script type='text/x-mathjax-config'>MathJax.Hub.Config({tex2jax: {inlineMath: [['$$$','$$$']], displayMath: [['$$$$$$','$$$$$$']]}});</script><script type='text/javascript' async src='"+mathjax_file+"'></script><link rel='stylesheet' href='"+css_file_1+"'><link rel='stylesheet' href='"+css_file_2+"'>"+node
+jquery_file=os.path.abspath("scripts/jquery-2.1.0.min.js")
 
+node="<button onclick='go_to_top_fun()' id='go_to_top_btn' title='Go to Top'>&#10148</button>"+node
+node="</ul></div></div><script>$(document).ready(function(){$('#tag_btn').click(function(){$('#tags').slideToggle();});});</script>"+node
+node1=""
+for tag in soup.findAll("span",{"class":"tag-box"}):
+	node1=node1+"<li title='"+tag['title']+"'>"+tag.text+"</li>"
+if len(node1) == 0:
+	node1 = "<li style='font-weight:bold;'>No tags imported yet. Please update problem statement.</li>"
+node=node1+node
+node="<div id='tags'><ul id='tag_list'>"+node
+node="<div class='second-level-menu'><ul class='second-level-menu-list'><li><a href='https://codeforces.com/contest/"+contest_id+"/problem/"+task_id+"' target='_blank'>Link to Problem</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/submit/"+task_id+"' target='_blank'>Submit Code</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/my' target='_blank'>My Submissions</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/status' target='_blank'>Status</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/hacks' target='_blank'>Hacks</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/room/0' target='_blank'>Room</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/standings' target='_blank'>Standings</a></li><li><a id='tag_btn'>Tags</a></li></ul>"+node
+node="<script>window.onscroll = function(){scrollFunction()};function scrollFunction(){if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60)document.getElementById('go_to_top_btn').style.display='block';else document.getElementById('go_to_top_btn').style.display = 'none';}function go_to_top_fun(){document.body.scrollTop = 0;document.documentElement.scrollTop = 0;}</script>"+node
+node="<script type='text/x-mathjax-config'>MathJax.Hub.Config({tex2jax: {inlineMath: [['$$$','$$$']], displayMath: [['$$$$$$','$$$$$$']]}});</script><script src='"+jquery_file+"'></script><script type='text/javascript' async src='"+mathjax_file+"'></script><link rel='stylesheet' href='"+css_file_1+"'><link rel='stylesheet' href='"+css_file_2+"'>"+node
 node=node.replace('src="/','src="https://codeforces.com/')
 node=node.replace('href="/','href="https://codeforces.com/')
 soup = BeautifulSoup(node,'lxml')
