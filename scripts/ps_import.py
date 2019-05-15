@@ -7,8 +7,8 @@ from lxml import etree
 from bs4 import BeautifulSoup
 import base64
 
-def get_image_file_as_base64_data(FILEPATH):
-    with open(FILEPATH, 'rb') as image_file:
+def get_image_file_as_base64_data(filepath):
+    with open(filepath, 'rb') as image_file:
     	return base64.b64encode(image_file.read())
 
 contest_id = (sys.argv)[1]
