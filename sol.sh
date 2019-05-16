@@ -15,6 +15,7 @@ fi
 
 read -p "Enter problem IDs (to import all problems from contest, keep it empty) : " task_id
 task_id=$(echo $task_id | awk '{print toupper($0)}')
+echo "Processing ..."
 problems=$(${pyth} scripts/problem_list_import.py $id)
 if [[ "$?" -eq 0 ]];then
 	echo "Problems are not released yet/ Network Error"
@@ -70,8 +71,8 @@ done
 
 echo -n "Test Case "
 if [[ "$ps_import_flag" == 1 ]];then
-		echo -n "and Problem Statement "
-	fi 
+	echo -n "and Problem Statement "
+fi 
 echo -n "Fetching : "
 c=0
 d=0
@@ -95,6 +96,10 @@ else
 	echo $'\n'"Test Case Fetching Failed :("
 	echo "Please Try again"
 fi
+
+if [[ "$ps_import_flag" == 0 ]];then
+	exit 1
+fi 
 
 if [[ "$d" -eq "${problem_count}" ]];then
 	echo "Problem Statements Downloaded :)"
