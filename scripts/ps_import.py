@@ -47,16 +47,18 @@ for tag in soup.findAll("span",{"class":"tag-box"}):
 	else:
 		node1 = node1+"<li title='"+tag['title']+"'>"+tag.text+"</li>"
 if len(node1) == 0 and prob_diff == 0:
-	node1 = "<li style='font-weight:bold;'>No tags imported yet. Please update problem statement.</li>"
+	node1 = "<li style='border:none;color:#d99;font-size:14px;'>No tags imported yet. Please update problem statement by calling <a href='https://github.com/pratikgk45/atcc#how-to-use' style='color:#9d9;font-weight:bold;' target='_blank'>sol command</a> (refer README). If still not imported, they are not published yet.</li>"
+	node = node1 + node
 elif len(node1) == 0:
 	node1 = "<li><b>Problem Difficulty :</b> "+str(prob_diff)+"</li>"
+	node = node1 + node
 elif prob_diff == 0:
-	node=node1+node
+	node = node1 + node
 else:
-	node=node1+"<br><li><b>Problem Difficulty :</b> "+str(prob_diff)+"</li>"+node
+	node = node1+"<br><li  style='border: none;'><b>Problem Difficulty :</b> "+str(prob_diff)+"</li>"+node
 
 node="<div id='tags'><ul id='tag_list'>"+node
-node="<div class='second-level-menu'><ul class='second-level-menu-list'><li><a href='https://codeforces.com/contest/"+contest_id+"/problem/"+task_id+"' target='_blank'>Link to Problem</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/submit/"+task_id+"' target='_blank'>Submit Code</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/my' target='_blank'>My Submissions</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/status' target='_blank'>Status</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/hacks' target='_blank'>Hacks</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/room/0' target='_blank'>Room</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/standings' target='_blank'>Standings</a></li><li><a id='tag_btn'>Tags</a></li></ul>"+node
+node="<div class='second-level-menu'><ul class='second-level-menu-list'><li><a href='https://codeforces.com/contest/"+contest_id+"' target='_blank'>Link to Contest</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/problem/"+task_id+"' target='_blank'>Link to Problem</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/submit/"+task_id+"' target='_blank'>Submit Code</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/my' target='_blank'>My Submissions</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/status' target='_blank'>Status</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/hacks' target='_blank'>Hacks</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/room/0' target='_blank'>Room</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/standings' target='_blank'>Standings</a></li><li><a id='tag_btn'>Tags</a></li></ul>"+node
 node="<script>window.onscroll = function(){scrollFunction()};function scrollFunction(){if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60)document.getElementById('go_to_top_btn').style.display='block';else document.getElementById('go_to_top_btn').style.display = 'none';}function go_to_top_fun(){document.body.scrollTop = 0;document.documentElement.scrollTop = 0;}</script>"+node
 node="<script type='text/x-mathjax-config'>MathJax.Hub.Config({tex2jax: {inlineMath: [['$$$','$$$']], displayMath: [['$$$$$$','$$$$$$']]}});</script><script src='"+jquery_file+"'></script><script type='text/javascript' async src='"+mathjax_file+"'></script><link rel='stylesheet' href='"+css_file_1+"'><link rel='stylesheet' href='"+css_file_2+"'>"+node
 node=node.replace('src="/','src="https://codeforces.com/')
