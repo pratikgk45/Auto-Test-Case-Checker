@@ -79,13 +79,11 @@
 #tags {
 	display: none;
 }
-
 #tag_list {
 	position: relative;
     overflow: hidden;
     display: inline-block;
 }
-
 #tag_list li {
 	position: relative;
     overflow: hidden;

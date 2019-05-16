@@ -40,11 +40,21 @@ jquery_file=os.path.abspath("scripts/jquery-2.1.0.min.js")
 node="<button onclick='go_to_top_fun()' id='go_to_top_btn' title='Go to Top'>&#10148</button>"+node
 node="</ul></div></div><script>$(document).ready(function(){$('#tag_btn').click(function(){$('#tags').slideToggle();});});</script>"+node
 node1=""
+prob_diff=0
 for tag in soup.findAll("span",{"class":"tag-box"}):
-	node1=node1+"<li title='"+tag['title']+"'>"+tag.text+"</li>"
-if len(node1) == 0:
+	if tag['title'] == "Difficulty":
+		prob_diff = int(tag.text.replace(" ","").replace("\r","").replace("\n","")[1:])
+	else:
+		node1 = node1+"<li title='"+tag['title']+"'>"+tag.text+"</li>"
+if len(node1) == 0 and prob_diff == 0:
 	node1 = "<li style='font-weight:bold;'>No tags imported yet. Please update problem statement.</li>"
-node=node1+node
+elif len(node1) == 0:
+	node1 = "<li><b>Problem Difficulty :</b> "+str(prob_diff)+"</li>"
+elif prob_diff == 0:
+	node=node1+node
+else:
+	node=node1+"<br><li><b>Problem Difficulty :</b> "+str(prob_diff)+"</li>"+node
+
 node="<div id='tags'><ul id='tag_list'>"+node
 node="<div class='second-level-menu'><ul class='second-level-menu-list'><li><a href='https://codeforces.com/contest/"+contest_id+"/problem/"+task_id+"' target='_blank'>Link to Problem</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/submit/"+task_id+"' target='_blank'>Submit Code</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/my' target='_blank'>My Submissions</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/status' target='_blank'>Status</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/hacks' target='_blank'>Hacks</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/room/0' target='_blank'>Room</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/standings' target='_blank'>Standings</a></li><li><a id='tag_btn'>Tags</a></li></ul>"+node
 node="<script>window.onscroll = function(){scrollFunction()};function scrollFunction(){if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60)document.getElementById('go_to_top_btn').style.display='block';else document.getElementById('go_to_top_btn').style.display = 'none';}function go_to_top_fun(){document.body.scrollTop = 0;document.documentElement.scrollTop = 0;}</script>"+node
