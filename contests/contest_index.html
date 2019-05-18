@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contests</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+	<div class="container">
+		<h1>Contests</h1>
+		<table class="list" id="contest_id">
+			<thead>
+				<tr>
+					<th class="ID">Contest ID</th>
+					<th class="name">Name</th>
+					<th class="standings">Standings</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for contest in contests %}
+		            <tr>
+						<td data-label="ID" style="font-weight: bold;">{{contest["contest_id"]}}</td>
+						<td data-label="Name"><a href="/{{contest['contest_id']}}">{{contest["contest_name"]}}</a></td>
+						<td data-label="Standings"><a href="https://codeforces.com/contest/{{contest['contest_id']}}/standings" target="_blank" class="standings_logo"><img src="static/standings.png" title="Standings"/></a></a></td>
+		            </tr>
+         		{% endfor %}
+			</tbody>
+    </table>
+	</div>
+</body>
+</html>

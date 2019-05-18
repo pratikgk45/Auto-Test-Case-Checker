@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{{contest_name}}</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+	<div class="container">
+		<h1>{{contest_name}}</h1>
+		<h2>Problems</h2>
+		<table class="list" id="contest_id">
+			<thead>
+				<tr>
+					<th class="ID">Problem ID</th>
+					<th class="name">Problem Name</th>
+					<th class="standings">Submit</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for problem in problems %}
+		            <tr>
+						<td data-label="ID" style="font-weight: bold;">{{problem["problem_id"]}}</td>
+						<td data-label="Name"><a href="/{{contest_id}}/{{problem['problem_id']}}" target="_blank">{{problem["problem_name"]}}</a></td>
+						<td data-label="Submit"><a href="https://codeforces.com/contest/{{contest_id}}/submit/{{problem['problem_id']}}" target="_blank"><img src="static/submit.png" title="Submit"/></a></a></td>
+		            </tr>
+         		{% endfor %}
+			</tbody>
+    </table>
+	</div>
+</body>
+</html>

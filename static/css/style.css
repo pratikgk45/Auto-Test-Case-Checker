@@ -1390,3 +1390,78 @@ div .problem-statement-overlay {
 #go_to_top_btn:hover {
  	background-color: #390;
 }
+
+.container {
+	margin: 50px;
+}
+
+.list {
+	border: 1px solid #ccc;
+	width: 100%;
+	margin-top: 20px;
+	padding:0;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.list tr {
+	border: 1px solid #ddd;
+	padding: 5px;
+}
+
+.list th, .list td {
+	padding: 10px;
+	text-align: center;
+}
+
+.list th {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+
+.list .ID {
+	width: 200px;
+}
+
+.ID {
+	font-weight: bold;
+}
+.list .standings {
+	width: 200px;
+}
+
+.standings_logo img {
+	width: 30px;
+	height: 30px;
+}
+
+@media screen and (max-width: 600px) {
+	.list {
+		border: 0;
+	}
+	.list thead {
+		display: none;
+	}
+	.list tr {
+		margin-bottom: 10px;
+		display: block;
+		border-bottom: 2px solid #ddd;
+	}
+	.list td {
+		display: block;
+		text-align: right;
+		font-size: 13px;
+		border-bottom: 1px dotted #ccc;
+	}
+	.list td:last-child {
+		border-bottom: 0;
+	}
+	.list td:before {
+		content: attr(data-label);
+		float: left;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+}

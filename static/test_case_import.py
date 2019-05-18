@@ -26,7 +26,7 @@ def filter_node(node,in_or_out):
 	node = node.replace("<pre>","")
 	node = node.replace("</pre>","")
 	node = node.replace("<br/>","\n")
-	filename = "cf_"+contest_id+'/test_cases/'+task_id+'_'+in_or_out+'_'+str(test_id)
+	filename = "contests/cf_"+contest_id+'/test_cases/'+task_id+'_'+in_or_out+'_'+str(test_id)
 	f = open(filename,'w')
 	f.write(node)
 	f.close()
@@ -34,7 +34,7 @@ def filter_node(node,in_or_out):
 
 # print(node.text_content())
 num_samples = int(len(node.getchildren())/2)
-f = open("cf_"+contest_id+'/test_cases/'+task_id+'_num_samples','w')
+f = open("contests/cf_"+contest_id+'/test_cases/'+task_id+'_num_samples','w')
 f.write(str(num_samples))
 for test_id in range(num_samples):
 	test_input  = node[test_id*2]

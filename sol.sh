@@ -13,14 +13,16 @@ else
 	exit 1
 fi
 
+echo "Processing ..."
+problems=$(${pyth} static/problem_list_import.py $id)
+if [[ "$?" -eq 0 ]];then
+	echo "Invalid Contest ID/ Problems are not released yet/ Network Error"
+	exit 1
+fi
+
 read -p "Enter problem IDs (to import all problems from contest, keep it empty) : " task_id
 task_id=$(echo $task_id | awk '{print toupper($0)}')
 echo "Processing ..."
-problems=$(${pyth} scripts/problem_list_import.py $id)
-if [[ "$?" -eq 0 ]];then
-	echo "Problems are not released yet/ Network Error"
-	exit 1
-fi
 if [[ ! -z "$task_id" ]];then
 	c=0
 	d=0
@@ -42,14 +44,15 @@ if [[ ! -z "$task_id" ]];then
 	problems=$task_id
 fi
 
-read -p "Do you want to download problem statements ? (0/1) : " ps_import_flag
-
-mkdir -p "cf_"$id
-mkdir -p "cf_"$id/test_cases/
-mkdir -p "cf_"$id/ps/
+mkdir -p contests/"cf_"$id
+mkdir -p contests/"cf_"$id/test_cases/
+mkdir -p contests/"cf_"$id/ps/
+${pyth} static/contest_list_update.py $id
+cd contests
 cd "cf_"$id
-ln -fs ../scripts/ver.sh ver.sh
-ln -fs ../scripts/run.sh run.sh
+ln -fs ../../static/ver.sh ver.sh
+ln -fs ../../static/run.sh run.sh
+cd ..
 cd ..
 
 declare -a problem_list
@@ -57,33 +60,30 @@ for i in $problems;
 do
 	problem_list+=($i)
 done
+
+${pyth} update_contest.py $id $problems
 problem_count=${#problem_list[@]}
 
 for problem in ${problem_list[@]};
 do
-	if [ -f "cf_"$id/$problem".cpp" ];then
+	if [ -f contests/"cf_"$id/$problem".cpp" ];then
 		echo $problem" -> "$problem".cpp already exists"
 	else
 		echo $problem" -> "$problem".cpp created"
-		cp -n --no-clobber template.cpp "cf_"$id/$problem.cpp
+		cp -n --no-clobber template.cpp contests/"cf_"$id/$problem.cpp
 	fi
 done
 
-echo -n "Test Case "
-if [[ "$ps_import_flag" == 1 ]];then
-	echo -n "and Problem Statement "
-fi 
-echo -n "Fetching : "
+echo -n "Test Case and Problem Statement Fetching : "
+
 c=0
 d=0
 for problem in ${problem_list[@]};
 do
 	echo -n $problem" "
-	${pyth} scripts/test_case_import.py $id $problem
+	${pyth} static/test_case_import.py $id $problem
 	c=$(( $c + $? ))
-	if [[ "$ps_import_flag" == 1 ]];then
-		${pyth} scripts/ps_import.py $id $problem
-	fi
+	${pyth} static/ps_import.py $id $problem
 	d=$(( $d + $? ))
 done
 
@@ -96,10 +96,6 @@ else
 	echo $'\n'"Test Case Fetching Failed :("
 	echo "Please Try again"
 fi
-
-if [[ "$ps_import_flag" == 0 ]];then
-	exit 1
-fi 
 
 if [[ "$d" -eq "${problem_count}" ]];then
 	echo "Problem Statements Downloaded :)"
