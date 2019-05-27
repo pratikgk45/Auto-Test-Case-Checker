@@ -30,8 +30,9 @@ def task_route(contest_id, task_id):
 	return render_template('cf_'+contest_id+'/ps/'+task_id+'.html')
 
 @app.route('/<contest_id>/<task_id>/submit')
-def submit():
-	os.system("python3 submit.py "+contest_id+" "+task_id)
+def submit(contest_id, task_id):
+	os.system("python3 static/submit.py "+contest_id+" "+task_id)
+	return render_template('cf_'+contest_id+'/ps/'+task_id+'.html')
 
 if __name__ == '__main__':
 	app.run(debug=True)

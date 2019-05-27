@@ -53,13 +53,13 @@ else:
 	node = node1+"<br><li  style='border: none;'><b>Problem Difficulty :</b> "+str(prob_diff)+"</li>"+node
 
 node="<div id='tags'><ul id='tag_list'>"+node
-node="<div class='second-level-menu'><ul class='second-level-menu-list'><li><a href='https://codeforces.com/contest/"+contest_id+"' target='_blank'>Link to Contest</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/problem/"+task_id+"' target='_blank'>Link to Problem</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/submit/"+task_id+"/' target='_blank'>Submit Code</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/my' target='_blank'>My Submissions</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/status/"+task_id+"' target='_blank'>Problem Status</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/hacks' target='_blank'>Hacks</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/room/0' target='_blank'>Room</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/standings' target='_blank'>Standings</a></li><li><a id='tag_btn'>Tags</a></li></ul>"+node
+node="<div class='second-level-menu'><ul class='second-level-menu-list'><li><a href='https://codeforces.com/contest/"+contest_id+"' target='_blank'>Link to Contest</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/problem/"+task_id+"' target='_blank'>Link to Problem</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/submit/"+task_id+"' target='_blank'>Submit Code</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/my' target='_blank'>My Submissions</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/status/"+task_id+"' target='_blank'>Problem Status</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/hacks' target='_blank'>Hacks</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/room/0' target='_blank'>Room</a></li><li><a href='https://codeforces.com/contest/"+contest_id+"/standings' target='_blank'>Standings</a></li><li><a id='tag_btn'>Tags</a></li></ul>"+node
 node="<script>window.onscroll = function(){scrollFunction()};function scrollFunction(){if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60)document.getElementById('go_to_top_btn').style.display='block';else document.getElementById('go_to_top_btn').style.display = 'none';}function go_to_top_fun(){document.body.scrollTop = 0;document.documentElement.scrollTop = 0;}</script>"+node
-mathjax_file="../static/MathJax/MathJax.js?config=TeX-AMS_HTML-full"
-css_file_1="../static/css/style.css"
-css_file_2="../static/css/menu.css"
-jquery_file="../static/js/jquery-2.1.0.min.js"
-node="<script type='text/x-mathjax-config'>MathJax.Hub.Config({tex2jax: {inlineMath: [['$$$','$$$']], displayMath: [['$$$$$$','$$$$$$']]}});</script><script src='"+jquery_file+"'></script><script type='text/javascript' async src='"+mathjax_file+"'></script><link rel='stylesheet' href='"+css_file_1+"'><link rel='stylesheet' href='"+css_file_2+"'>"+node
+mathjax_file="../../../static/MathJax/MathJax.js?config=TeX-AMS_HTML-full"
+css_file_1="../../../static/css/style.css"
+css_file_2="../../../static/css/menu.css"
+jquery_file="../../../static/js/jquery-2.1.0.min.js"
+node="<title>Codeforces Contest "+contest_id+" : "+task_id+"</title><script type='text/x-mathjax-config'>MathJax.Hub.Config({tex2jax: {inlineMath: [['$$$','$$$']], displayMath: [['$$$$$$','$$$$$$']]}});</script><script src='"+jquery_file+"'></script><script type='text/javascript' async src='"+mathjax_file+"'></script><link rel='stylesheet' href='"+css_file_1+"'><link rel='stylesheet' href='"+css_file_2+"'>"+node
 node=node.replace('src="/','src="https://codeforces.com/')
 node=node.replace('href="/','href="https://codeforces.com/')
 soup = BeautifulSoup(node,'lxml')

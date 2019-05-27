@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>{{contest_name}}</h1>
+		<h1>{{contest_name}}</h1>&nbsp
 		<h2>Problems</h2>
 		<table class="list" id="contest_id">
 			<thead>
@@ -23,7 +23,7 @@
 		            <tr>
 						<td data-label="ID" style="font-weight: bold;">{{problem["problem_id"]}}</td>
 						<td data-label="Name"><a href="/{{contest_id}}/{{problem['problem_id']}}" target="_blank">{{problem["problem_name"]}}</a></td>
-						<td data-label="Submit"><a href="https://codeforces.com/contest/{{contest_id}}/submit/{{problem['problem_id']}}" target="_blank"><img src="static/submit.png" title="Submit"/></a></a></td>
+						<td data-label="Submit"><a href="/{{contest_id}}/{{problem['problem_id']}}/submit" target="_blank"><img src="static/submit.png" title="Submit"/></a></a></td>
 		            </tr>
          		{% endfor %}
 			</tbody>

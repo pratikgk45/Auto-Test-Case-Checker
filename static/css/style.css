@@ -1421,6 +1421,18 @@ div .problem-statement-overlay {
 	letter-spacing: 1px;
 }
 
+.list td a {
+	color: #0000cd;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.list td a:hover {
+	color: #191970;
+	font-size: 15px;
+	font-weight: bold;
+}
+
 .list .ID {
 	width: 200px;
 }

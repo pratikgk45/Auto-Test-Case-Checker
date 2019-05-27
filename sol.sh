@@ -47,7 +47,6 @@ fi
 mkdir -p contests/"cf_"$id
 mkdir -p contests/"cf_"$id/test_cases/
 mkdir -p contests/"cf_"$id/ps/
-${pyth} static/contest_list_update.py $id
 cd contests
 cd "cf_"$id
 ln -fs ../../static/ver.sh ver.sh

@@ -40,3 +40,10 @@ Note
 * It is possible that due to bad network or some other reason, program may terminate throwing an error or take longer than expected. That time, it is adviced to terminate the program( ctrl + z ) and try again with same procedure followed before.
 * Tags present in problem statements are updated only when they are imported again using __sol__ command.
 * In problem statement, if any unknown mathematical symbols(specially latex syntex) are seen, refresh the tab so that MathJax will be loaded properly.
+
+Download Chromedriver :
+wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
+unzip chromedriver_linux64.zip
+sudo mv chromedriver /usr/bin/chromedriver
+sudo chown root:root /usr/bin/chromedriver
+sudo chmod +x /usr/bin/chromedriver
