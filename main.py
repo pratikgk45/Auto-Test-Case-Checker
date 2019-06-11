@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, request
 import os
 import sqlite3 as sql
 
@@ -31,8 +31,8 @@ def task_route(contest_id, task_id):
 
 @app.route('/<contest_id>/<task_id>/submit')
 def submit(contest_id, task_id):
-	os.system("python3 static/submit.py "+contest_id+" "+task_id)
-	return render_template('cf_'+contest_id+'/ps/'+task_id+'.html')
+	response = os.popen("python3 static/submit.py "+contest_id+" "+task_id).read()
+	return response
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run(host='127.0.0.1',port=5000,debug=True)

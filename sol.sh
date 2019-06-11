@@ -20,7 +20,7 @@ if [[ "$?" -eq 0 ]];then
 	exit 1
 fi
 
-read -p "Enter problem IDs (to import all problems from contest, keep it empty) : " task_id
+read -p "Enter problem IDs (to import all problems, just press ENTER) : " task_id
 task_id=$(echo $task_id | awk '{print toupper($0)}')
 echo "Processing ..."
 if [[ ! -z "$task_id" ]];then
