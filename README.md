@@ -1,8 +1,6 @@
 Auto Test Case Checker (ATCC)
 =====================
 
-__TO BE UPDATED__
-
 http://codeforces.com conducts programming contests. While participating in the contest or upsolving, it would be better if we could check all the sample test cases by running a single script. Also, we may need to solve problems without internet connection and check solutions on sample test cases. This repository is going to help in that only.
 
 Currently these scripts are only for programming in C++ (If you want to extend to others, modifying the scripts is quite easy).
