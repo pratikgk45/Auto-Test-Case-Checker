@@ -7,6 +7,8 @@ import sys
 confirm = input("Are you sure you want to delete all contest data ? [y/n] : ")
 if(confirm == 'n'):
 	sys.exit()
+repo_delete = input('Do you want to delete all contest cf_* repositories ? [y/n] : ')
+
 conn = sqlite3.connect('sqlite.db')
 cur = conn.cursor()
 cur.execute('DROP TABLE IF EXISTS problems')
@@ -14,9 +16,10 @@ cur.execute('CREATE TABLE problems (contest_id INT NOT NULL, contest_name TEXT, 
 conn.commit()
 conn.close()
 
-dir_list = glob.iglob(os.path.join(os.getcwd()+"/contests","cf_*"));
-for dir in dir_list:
-	if os.path.isdir(dir):
-		shutil.rmtree(dir)
+if(repo_delete == 'y'):
+	dir_list = glob.iglob(os.path.join(os.getcwd()+"/contests","cf_*"));
+	for dir in dir_list:
+		if os.path.isdir(dir):
+			shutil.rmtree(dir)
 
 print("Data successfully deleted")

@@ -1,6 +1,8 @@
 Auto Test Case Checker (ATCC)
 =====================
 
+__TO BE UPDATED__
+
 http://codeforces.com conducts programming contests. While participating in the contest or upsolving, it would be better if we could check all the sample test cases by running a single script. Also, we may need to solve problems without internet connection and check solutions on sample test cases. This repository is going to help in that only.
 
 Currently these scripts are only for programming in C++ (If you want to extend to others, modifying the scripts is quite easy).
@@ -43,3 +45,4 @@ Note
 * Tags present in problem statements are updated only when they are imported again using __sol__ command.
 * In problem statement, if any unknown mathematical symbols(specially latex syntex) are seen, refresh the tab so that MathJax will be loaded properly.
 * __Do not reload or close tab after submitting the code(after clicking SUBMIT CODE) until final confirmation(Solution Submitted) occurs__.
+* If you want to erase all contests from Database or want to erase all contest cf_* repositories, run __python3 db_setup.py__ command.
