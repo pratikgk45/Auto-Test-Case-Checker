@@ -25,7 +25,7 @@ How to Use
 ----------
 Suppose you want to participate or to solve problems in http://codeforces.com/contest/1163
 
-* Navigate to repository. Run __source init.sh__ command.
+* Navigate to repository. Run __source init.sh__ command. It gives permissions to .sh files for execution and initializes __sol__, __ver__ and __run__ commands.
 * Then, run __sol__ command. Enter Contest ID (say 1163 for this contest). Enter __space-separated__ problem IDs for problems you want to solve (say A B1 B2). __If you want to solve all problems, keep this place blank and just press ENTER__.
 * If any error occurs(invalid contest ID, network error or if problems are not released yet), program will terminate.
 * If already released, it will create a folder "cf_"contest_id (say cf_1163) containing .cpp files, one for each problem along with scripts (ver.sh and run.sh), Test case folder where all imported test cases will be placed and ps folder where all imported __html__ problem statements will be placed.
@@ -34,7 +34,6 @@ Suppose you want to participate or to solve problems in http://codeforces.com/co
 * Write the solution for a problem (say D) in respective file (D.cpp).
 * Run __ver d__ or __ver D__ to test your solution D.cpp with imported sample test cases for problem D.
 * To test your solution D.cpp with custom test case, run __run d__ or __run D__ command and get output by entering respective custom input. __Whole custom input should be entered on a single line__.
-* If you get any error related to __sol__, __ver__ or __run__ commands or about permission, refer to point 2 in 'Installation and Configuration' section.
 
 Note
 ----
