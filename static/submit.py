@@ -42,7 +42,7 @@ try:
 except:
 	pass
 if flag:
-	print("<span id='close_pop_up'>&times;</span><h5 style='color:#fa4a4a;'>Invalid Login Credentials</h5><p>Please enter valid credentials in static/credentials.py</p>")
+	print("<span id='close_pop_up'>&times;</span><h5 style='color:#fa4a4a;font-size:13px;'>Invalid Login Credentials</h5><p style='font-size:13px;'>Please enter valid credentials in static/credentials.py</p>")
 	sys.exit()
 
 try:
