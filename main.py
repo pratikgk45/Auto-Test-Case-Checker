@@ -9,7 +9,7 @@ def index():
 	conn = sql.connect("sqlite.db")
 	conn.row_factory = sql.Row
 	cur = conn.cursor()
-	cur.execute("SELECT DISTINCT contest_id, contest_name FROM problems")
+	cur.execute("SELECT contest_id, contest_name FROM contests ORDER BY update_time DESC")
 	rows = cur.fetchall()
 	return render_template('contest_index.html', contests=rows)
 
@@ -18,7 +18,7 @@ def contest_route(contest_id):
 	conn = sql.connect("sqlite.db")
 	conn.row_factory = sql.Row
 	cur = conn.cursor()
-	cur.execute("SELECT DISTINCT contest_name FROM problems WHERE contest_id="+str(contest_id))
+	cur.execute("SELECT contest_name FROM contests WHERE contest_id="+str(contest_id))
 	rows = cur.fetchall()
 	contest_name = rows[0][0]
 	cur.execute("SELECT problem_id, problem_name FROM problems WHERE contest_id="+str(contest_id))

@@ -68,11 +68,11 @@ read -p "Do you want to overwrite .cpp files(if exists) [y/n] : " cpp_overwrite
 for problem in ${problem_list[@]};
 do
 	if [ -f contests/"cf_"$id/$problem".cpp" ];then
-		if [[ "$cpp_overwrite" == "y" ]];then
+		if [[ "$cpp_overwrite" == "n" ]];then
+			echo $problem" -> "$problem".cpp already exists"
+		else
 			cp -n --no-clobber template.cpp contests/"cf_"$id/$problem.cpp
 			echo $problem" -> "$problem".cpp overwritten"
-		else
-			echo $problem" -> "$problem".cpp already exists"
 		fi
 	else
 		cp -n --no-clobber template.cpp contests/"cf_"$id/$problem.cpp

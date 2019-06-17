@@ -39,6 +39,14 @@ problem_list = list(set(problem_list_1) - set(problem_list_2))
 problem_list.sort()
 
 contest_info = get_contest_info(contest_id)
+
+cur.execute('SELECT * FROM contests WHERE contest_id = '+ str(contest_id))
+rows = cur.fetchall()
+if len(rows) :
+	cur.execute('UPDATE contests SET update_time = DATETIME() WHERE contest_id = '+str(contest_id))
+else:
+	cur.execute('INSERT INTO contests(contest_id, contest_name, update_time) VALUES ('+str(contest_id)+', "'+contest_info['contest_name']+'", DATETIME("now"))')
+conn.commit()
 for problem in problem_list:
 	cur.execute('INSERT INTO problems(contest_id, contest_name, problem_id, problem_name) VALUES('+str(contest_id)+', "'+contest_info['contest_name']+'", "'+problem+'", "'+contest_info[problem]+'")')
 	conn.commit()
