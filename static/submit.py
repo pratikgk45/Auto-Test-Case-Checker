@@ -34,14 +34,11 @@ except:
 	print("<span id='close_pop_up'>&times;</span><h5 style='color:#fa4a4a;'>Network Error / Site is not available</h5>")
 	sys.exit()
 	
-
-flag = 0
 try:
 	error_source_file = driver.find_element_by_class_name("shiftUp")
-	flag = 1
 except:
 	pass
-if flag:
+else:
 	print("<span id='close_pop_up'>&times;</span><h5 style='color:#fa4a4a;font-size:13px;'>Invalid Login Credentials</h5><p style='font-size:13px;'>Please enter valid credentials in static/credentials.py</p>")
 	sys.exit()
 
