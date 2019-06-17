@@ -12,7 +12,6 @@ Installation and Configuration
 3. Navigate to repository and run following commands in given sequence :
 ```bash
 cd static
-mkdir MathJax
 git clone https://github.com/mathjax/MathJax.git ./MathJax
 cd ..
 python3 db_setup.py
