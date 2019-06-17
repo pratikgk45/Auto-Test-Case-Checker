@@ -11,9 +11,9 @@ Installation and Configuration
 2. To install dependencies, refer to [requirements.txt](./requirements.txt)
 3. Navigate to repository and run following commands in given sequence :
 ```bash
-cd scripts
-mkdir MathJax-2.7.3
-git clone https://github.com/mathjax/MathJax.git ./MathJax-2.7.3/
+cd static
+mkdir MathJax
+git clone https://github.com/mathjax/MathJax.git ./MathJax
 cd ..
 python3 db_setup.py
 source init.sh
