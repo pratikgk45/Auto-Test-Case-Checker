@@ -25,7 +25,7 @@ How to Use
 Suppose you want to participate or to solve problems in http://codeforces.com/contest/1163
 
 * Navigate to repository. Run the server by running __python3 main.py__ command. Server will be running at http://127.0.0.1:5000/ 
-* Run __source init.sh__ command. It gives permissions to .sh files for execution and initializes __sol__, __ver__ and __run__ commands. __Every time you open new terminal, you need to execute this command to use sol, ver and run commands__.
+* Open another terminal and run __source init.sh__ command. It gives permissions to .sh files for execution and initializes __sol__, __ver__ and __run__ commands. __Every time you open new terminal, you need to execute this command to use sol, ver and run commands__.
 * Then, run __sol__ command. Enter Contest ID (say 1163 for this contest). Enter __space-separated__ problem IDs for problems you want to solve (say A B1 B2). __If you want to solve all problems, keep this place blank and just press ENTER__.
 * If any error occurs(invalid contest ID, network error or if problems are not released), program will terminate.
 * If already released, it will create a folder "cf_"contest_id (say cf_1163) containing .cpp files, one for each problem along with scripts (ver.sh and run.sh), Test case folder where all imported test cases will be placed and ps folder where all imported __html__ problem statements will be placed.
