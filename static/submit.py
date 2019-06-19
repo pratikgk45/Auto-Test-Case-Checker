@@ -16,9 +16,9 @@ try:
 	chrome_options.add_argument('--headless')
 	driver = webdriver.Chrome('chromedriver', chrome_options=chrome_options)
 except:
-	print("<span id='close_pop_up'>&times;</span><h5 style='color:red;'>Chrome Webdriver Error</h5><p>Chrome webdriver cannot be initiated</p><p>For manual submit, <a href='https://codeforces.com/contest/"+str(contest_id)+"/submit/"+task_id+"' target='_blank' style='color:#7fff00;font-weight:bold;text-decoration:none;'>CLICK HERE</a></p>")
+	print("<span id='close_pop_up'>&times;</span><h4 style='color:#fa4a4a;'>Chrome Webdriver Error</h4><p>Chrome webdriver cannot be initiated</p><p>For manual submit, <a href='https://codeforces.com/contest/"+str(contest_id)+"/submit/"+task_id+"' target='_blank' style='color:#7fff00;font-weight:bold;'>CLICK HERE</a></p>")
 	sys.exit()
-	
+
 try:
 	driver.get(url)
 	enter = driver.find_element(By.LINK_TEXT, "Enter")
@@ -31,15 +31,16 @@ try:
 	submit.click()
 	time.sleep(10)
 except:
-	print("<span id='close_pop_up'>&times;</span><h5 style='color:#fa4a4a;'>Network Error / Site is not available</h5>")
+	print("<span id='close_pop_up'>&times;</span><h4 style='color:#fa4a4a;'>Network Error / Site is not available</h4>")
 	sys.exit()
 	
+
 try:
 	error_source_file = driver.find_element_by_class_name("shiftUp")
 except:
 	pass
 else:
-	print("<span id='close_pop_up'>&times;</span><h5 style='color:#fa4a4a;font-size:13px;'>Invalid Login Credentials</h5><p style='font-size:13px;'>Please enter valid credentials in static/credentials.py</p>")
+	print("<span id='close_pop_up'>&times;</span><h4 style='color:#fa4a4a;'>Invalid Login Credentials</h4><p>Please enter valid credentials in static/credentials.py</p>")
 	sys.exit()
 
 try:
@@ -50,13 +51,13 @@ try:
 	submit_btn = driver.find_element_by_class_name("submit")
 	submit_btn.click()
 except:
-	print("<span id='close_pop_up'>&times;</span><h5 style='color:#fa4a4a;'>Submission Error</h5><p>"+task_id+".cpp cannot be submitted</p><p>For manual submit, <a href='https://codeforces.com/contest/"+str(contest_id)+"/submit/"+task_id+"' target='_blank' style='color:#7fff00;font-weight:bold;text-decoration:none;'>CLICK HERE</a></p>")
+	print("<span id='close_pop_up'>&times;</span><h4 style='color:#fa4a4a;'>Submission Error</h4><p>"+task_id+".cpp cannot be submitted</p><p>For manual submit, <a href='https://codeforces.com/contest/"+str(contest_id)+"/submit/"+task_id+"' target='_blank' style='color:#7fff00;font-weight:bold;'>CLICK HERE</a></p>")
 	sys.exit()
 
 try:
 	error_source_file = driver.find_element_by_class_name("shiftUp")
-	print("<span id='close_pop_up'>&times;</span><h5 style='color:#fa4a4a;'>Same Solution Error</h5><p>You are trying to submit exactly the same code before</p><p>Please visit <a href='https://codeforces.com/contest/"+str(contest_id)+"/my' target='_blank' style='color:#7fff00;font-weight:bold;text-decoration:none;'>My Submissions</a></p>")
+	print("<span id='close_pop_up'>&times;</span><h4 style='color:#fa4a4a;'>Same Solution Error</h4><p>You are trying to submit exactly the same code before</p><p>Please visit <a href='https://codeforces.com/contest/"+str(contest_id)+"/my' target='_blank' style='color:#7fff00;font-weight:bold;'>My Submissions</a></p>")
 except:
-	print("<span id='close_pop_up'>&times;</span><h5>Solution Submitted</h5><p>Please visit <a href='https://codeforces.com/contest/"+str(contest_id)+"/my' target='_blank' style='color:#7fff00;font-weight:bold;'>My Submissions</a></p>")
+	print("<span id='close_pop_up'>&times;</span><h4>Solution Submitted</h4><p>Please visit <a href='https://codeforces.com/contest/"+str(contest_id)+"/my' target='_blank' style='color:#7fff00;font-weight:bold;'>My Submissions</a></p>")
 
 driver.close()
