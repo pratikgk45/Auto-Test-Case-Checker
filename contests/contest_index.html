@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Contests</title>
+	<title>Home</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
 	<link rel="stylesheet" href="../static/css/style.css" />
+	<link rel="stylesheet" href="../static/css/menu.css" />
+	<script src="../static/js/jquery-2.1.0.min.js"></script>
 </head>
 <body>
 	<div class="container">
-		<h1>Contests</h1>
-		<table class="list" id="contest_id">
-			<thead>
-				<tr>
-					<th class="ID">Contest ID</th>
-					<th class="name">Name</th>
-					<th class="standings">Standings</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% if (contests is defined) and contests %}
-					{% for contest in contests %}
-			            <tr>
-							<td data-label="ID" style="font-weight: bold;">{{contest["contest_id"]}}</td>
-							<td data-label="Name"><a href="/{{contest['contest_id']}}" target="_blank">{{contest["contest_name"]}}</a></td>
-							<td data-label="Standings"><a href="https://codeforces.com/contest/{{contest['contest_id']}}/standings" target="_blank" class="standings_logo"><img src="../static/standings.png" title="cf_{{contest['contest_id']}} standings"/></a></a></td>
-			            </tr>
-	         		{% endfor %}
-	         	{% else %}
-	         		<tr><td colspan="3"><i>No Contests Imported</i></td></tr>
-	         	{% endif %}
-			</tbody>
-    </table>
+		<h1>CONTESTS</h1>
+		<p>&nbsp;</p><p>&nbsp;</p>
+		<div class="table_container" id="contest_table">
+			<table class="list">
+				<thead>
+					<tr>
+						<th class="ID">Contest ID</th>
+						<th class="name">Name</th>
+						<th class="standings">Standings</th>
+					</tr>
+				</thead>
+			</table>
+			<div class="list_container">
+				<table class="list">
+					<tbody>
+						{% if (contests is defined) and contests %}
+							{% for contest in contests %}
+					            <tr>
+									<td data-label="ID" style="font-weight: bold;">{{contest["contest_id"]}}</td>
+									<td data-label="Name"><a href="/{{contest['contest_id']}}" target="_blank">{{contest["contest_name"]}}</a></td>
+									<td data-label="Standings"><a href="https://codeforces.com/contest/{{contest['contest_id']}}/standings" target="_blank" class="standings_logo"><img src="../static/standings.png" title="cf_{{contest['contest_id']}} standings"/></a></td>
+					            </tr>
+			         		{% endfor %}
+			         	{% else %}
+			         		<tr><td colspan="3"><i>No Contests Imported</i></td></tr>
+			         	{% endif %}
+					</tbody>
+		    	</table>
+		    </div>
+		</div>
 	</div>
 </body>
 </html>
