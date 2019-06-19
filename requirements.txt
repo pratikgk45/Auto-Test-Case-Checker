@@ -5,8 +5,8 @@ pip3==19.0.3 : sudo apt install python3-pip
 requests==2.21.0 : sudo pip3 install requests
 bs4==4.6.0 : sudo apt-get install python3-bs4
 lxml : sudo apt-get install python3-lxml
-selenium==3.141.0 : sudo pip install selenium
-flask==1.0.2 : sudo pip install flask
+selenium==3.141.0 : sudo pip3 install selenium
+flask==1.0.2 : sudo pip3 install flask
 
 To Download ChromeDriver, execute following commands in given order :
 wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
