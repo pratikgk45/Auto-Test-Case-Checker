@@ -21,6 +21,7 @@ if [[ "$?" -eq 0 ]];then
 fi
 
 read -p "Enter problem IDs (to import all problems, just press ENTER) : " task_id
+read -p "Do you want to overwrite .cpp files(if exists) [y/n] : " cpp_overwrite
 task_id=$(echo $task_id | awk '{print toupper($0)}')
 echo "Processing ..."
 if [[ ! -z "$task_id" ]];then
@@ -62,8 +63,6 @@ done
 
 ${pyth} update_contest.py $id $problems
 problem_count=${#problem_list[@]}
-
-read -p "Do you want to overwrite .cpp files(if exists) [y/n] : " cpp_overwrite
 
 for problem in ${problem_list[@]};
 do

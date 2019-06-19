@@ -18,10 +18,10 @@ def contest_route(contest_id):
 	conn = sql.connect("sqlite.db")
 	conn.row_factory = sql.Row
 	cur = conn.cursor()
-	cur.execute("SELECT contest_name FROM contests WHERE contest_id="+str(contest_id))
+	cur.execute("SELECT contest_name FROM contests WHERE contest_id='"+str(contest_id)+"'")
 	rows = cur.fetchall()
 	contest_name = rows[0][0]
-	cur.execute("SELECT problem_id, problem_name FROM problems WHERE contest_id="+str(contest_id))
+	cur.execute("SELECT problem_id, problem_name FROM problems WHERE contest_id='"+str(contest_id)+"'")
 	rows = cur.fetchall()
 	return render_template('problem_index.html', contest_name=contest_name, contest_id=contest_id, problems=rows)
 

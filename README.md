@@ -29,6 +29,7 @@ Suppose you want to participate or to solve problems in http://codeforces.com/co
 * Then, run __sol__ command. Enter Contest ID (say 1163 for this contest). Enter __space-separated__ problem IDs for problems you want to solve (say A B1 B2). __If you want to solve all problems, keep this place blank and just press ENTER__.
 * If any error occurs(invalid contest ID, network error or if problems are not released), program will terminate.
 * If already released, it will create a folder "cf_"contest_id (say cf_1163) containing .cpp files, one for each problem along with scripts (ver.sh and run.sh), Test case folder where all imported test cases will be placed and ps folder where all imported __html__ problem statements will be placed.
+* If you want to see/solve problems __offline__, problem statements will be available in __ps__ folder in "cf_"contest_id folder.
 * Now, go to server and navigate to problem you want to solve. Also, navigate to contest folder by __cd cf_1163__ command in terminal. Write the solution for a problem (say D) in respective file (D.cpp).
 * Run __ver d__ or __ver D__ to test your solution D.cpp with imported sample test cases for problem D.
 * To test your solution D.cpp with custom test case, run __run d__ or __run D__ command and get output by entering respective custom input. __Whole custom input should be entered in a single line__.
