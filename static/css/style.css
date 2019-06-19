@@ -38,7 +38,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquot
 textarea{margin:0;padding:2px;}
 a:link { color: #0000cc; }
 body { background: #fff; margin: 0px 0px;}
-body, select, input { font-family: verdana,arial,sans-serif;}
+body, select, input { font-family: Bedrock, arial,sans-serif;}
 body { font-size: 1.4rem;}
 h1 { font-size: 1.8em; font-weight: bold;}
 h2 { font-size: 1.6em; font-weight: bold;}
@@ -1331,7 +1331,7 @@ div .problem-statement-overlay {
 
 .tex-font-style-tt {
     font-size: 110%;
-    font-family: courier new,monospace;
+    font-family: courier new, monospace;
 }
 
 .tex-font-style-md {
@@ -1372,7 +1372,7 @@ div .problem-statement-overlay {
 	transform: rotate(-90deg);
 	display: none;
 	position: fixed;
-	bottom: 30px;
+	bottom: 70px;
 	right: 30px;
 	z-index: 99;
 	font-size: 18px;
@@ -1395,12 +1395,25 @@ div .problem-statement-overlay {
 	margin: 50px;
 }
 
+.container h1 {
+	color: #2f4f6f;
+}
+
+.table_container {
+	box-shadow: 0 0 70px #bbb, 0 0 30px #6c7ae0;
+}
+
+.list_container {
+	max-height: 70vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border: 1px solid #6c7ae0;
+}
+
 .list {
-	border: 1px solid #ccc;
 	width: 100%;
-	margin-top: 20px;
 	padding:0;
-	border-collapse: collapse;
+	border-collapse: separate;
 	border-spacing: 0;
 }
 
@@ -1409,9 +1422,21 @@ div .problem-statement-overlay {
 	padding: 5px;
 }
 
+.list tr:hover {
+	background-color: #ddd;
+}
+
 .list th, .list td {
 	padding: 10px;
 	text-align: center;
+}
+
+.list td {
+	color: #333;
+}
+
+.list tr td {
+	font-size: 18px;
 }
 
 .list th {
@@ -1419,6 +1444,8 @@ div .problem-statement-overlay {
 	text-transform: uppercase;
 	font-size: 18px;
 	letter-spacing: 1px;
+	background-color: #6c7ae0;
+	color: white;
 }
 
 .list td a {
@@ -1429,24 +1456,74 @@ div .problem-statement-overlay {
 
 .list td a:hover {
 	color: #191970;
-	font-size: 15px;
+	font-size: 20px;
 	font-weight: bold;
 }
 
-.list .ID {
-	width: 200px;
+.list td a img {
+	transition: all .2s ease-in-out;
+}
+
+.list td a img:hover {
+	transform: scale(1.5);
 }
 
 .ID {
+	width: 200px;
 	font-weight: bold;
 }
-.list .standings {
+
+.list td:first-child, .list td:last-child, .list th:first-child {
 	width: 200px;
+}
+
+#problem_table th:last-child {
+	width: 200px;
+}
+
+#contest_table th:last-child {
+	width: 220px;
 }
 
 .standings_logo img {
 	width: 30px;
 	height: 30px;
+}
+
+#close_pop_up {
+  color: #aaaaaa;
+  float: right;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#close_pop_up:hover,
+#close_pop_up:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#submit_pop_up {
+	display: none;
+	position: fixed;
+	bottom: 29px;
+	right: 30px;
+	z-index: 200;
+	border: none;
+	outline: none;
+	background-color: #000;
+	opacity: .8;
+	color: white;
+	width: 250px;
+	height: auto;
+	font-size: 12px;
+	border-radius: 5px;
+	padding: 7px;
+}
+
+#submit_pop_up p {
+	font-size: 13px;
 }
 
 @media screen and (max-width: 600px) {
