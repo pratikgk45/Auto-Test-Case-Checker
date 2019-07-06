@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, request
 import os
 import sqlite3 as sql
 
+port = 5000
 app = Flask(__name__, template_folder="contests")
 
 @app.route('/')
@@ -51,4 +52,4 @@ def page_not_found(e):
 	return render_template('404.html')
 
 if __name__ == '__main__':
-	app.run(host='127.0.0.1',port=5000,debug=True)
+	app.run(host='127.0.0.1',port=port,debug=True)
