@@ -18,7 +18,7 @@ html_content = html.document_fromstring(response.text)
 try:
 	node = html_content.find_class("sample-test")[0]
 except:
-	sys.exit(0)
+	sys.exit(1)
 
 def filter_node(node,in_or_out):
 	node = node.getchildren()[1]
