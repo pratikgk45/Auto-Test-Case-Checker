@@ -70,7 +70,7 @@ do
 		if [[ "$cpp_overwrite" == "n" ]];then
 			echo $problem" -> "$problem".cpp already exists"
 		else
-			cp -n --no-clobber template.cpp contests/"cf_"$id/$problem.cpp
+			cp template.cpp contests/"cf_"$id/$problem.cpp
 			echo $problem" -> "$problem".cpp overwritten"
 		fi
 	else
