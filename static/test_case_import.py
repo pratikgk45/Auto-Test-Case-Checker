@@ -18,6 +18,10 @@ html_content = html.document_fromstring(response.text)
 try:
 	node = html_content.find_class("sample-test")[0]
 except:
+	num_samples = 0
+	f = open("contests/cf_"+contest_id+'/test_cases/'+task_id+'_num_samples','w')
+	f.write(str(num_samples))
+	f.close()
 	sys.exit(1)
 
 def filter_node(node,in_or_out):
