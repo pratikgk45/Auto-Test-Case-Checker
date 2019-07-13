@@ -12,7 +12,7 @@
 <body>
 	<div class="container">
 		<h1>CONTESTS</h1>
-		<p>&nbsp;</p><p>&nbsp;</p>
+		<br><br>
 		<div class="table_container" id="contest_table">
 			<table class="list">
 				<thead>
@@ -30,7 +30,7 @@
 							{% for contest in contests %}
 					            <tr>
 									<td data-label="ID" style="font-weight: bold;">{{contest["contest_id"]}}</td>
-									<td data-label="Name"><a href="/{{contest['contest_id']}}" target="_blank">{{contest["contest_name"]}}</a></td>
+									<td data-label="Name"><a href="/{{contest['contest_id']}}">{{contest["contest_name"]}}</a></td>
 									<td data-label="Standings"><a href="https://codeforces.com/contest/{{contest['contest_id']}}/standings" target="_blank" class="standings_logo"><img src="../static/standings.png" title="cf_{{contest['contest_id']}} standings"/></a></td>
 					            </tr>
 			         		{% endfor %}
