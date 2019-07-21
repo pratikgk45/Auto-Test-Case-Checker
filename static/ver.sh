@@ -37,6 +37,9 @@ if [ $? -eq 0 ];then
 		else
 			echo "FAILED"
 			echo "$tab|--------------------------------"
+			echo "$tab| Test Case : "
+			awk  -v tab="${tab}" '{ print tab"| " $0 }'  test_cases/$taskid"_in_"$test_id
+			echo "$tab|--------------------------------"
 			echo "$tab| Expected output : "
 			awk  -v tab="${tab}" '{ print tab"| " $0 }'  test_cases/$taskid"_out_"$test_id
 			echo "$tab|--------------------------------"
